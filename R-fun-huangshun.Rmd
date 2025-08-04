@@ -1,96 +1,22 @@
+```markdown
 ---
 title: "R函数代码及运行结果"
 output: html_document
+encoding: UTF-8
 ---
+
+## 代码运行结果展示
+查看R代码的运行结果：[http://rpubs.com/huangshun/Rfun]
 
 ## 代码说明
 R-fun-huangshun.R的展示
 
 ## 代码实现
-#1 ####
+```{r}
+source("R-fun-huangshun.R")
+
+## 运行结果
 a<-data.frame (a1=c(2,4,6),a2=c(3,5,8),a3=c(4,1,9))
 head(a)
-
-
-?pmin
-pmin(a$a1,a$a2,a$a3)
-
-
-apply(a,1,min)
-
-
-
-
-
-#1.4  老师这题不会，不太理解“自定义名为...的一个函数”  #####
-##方法一####
-a<-data.frame (a1=c(2,4,6),a2=c(3,5,8),a3=c(4,1,9))
-result<-numeric(nrow(a))    ###result初始化数据？
-for(i in 1:nrow(a)) {       ###for循环  
-  result[i]<-min(a[i, ])
-}
-print(result)               ###输出为0 0 0，为啥呢
-
-##方法二 自定义函数？####
-pmin_for<-funtion(a){
-  row_num<-nrow(a)
-  result<-numeric(row_num)
-  for (i in 1:row_num) {result(i)<- min(a[i, ])
-    
-  }return(result)
-}
-a <- data.frame(
-  a1 = c(2, 4, 6),
-  a2 = c(3, 5, 8),
-  a3 = c(4, 1, 9))
-cat("pmin_for(a)的结果：")
-print(pmin_for(a))
-
-
-
-##方法三####
-a<-data.frame (a1=c(2,4,6),a2=c(3,5,8),a3=c(4,1,9))
-row_num<-nrow(a)
-result<-numeric(row_num)
-for (i in 1:row_num) {
-  result(i)<-min(a[i, ])
-}
-
-
-
-
-
-
-#1.5#####
-
-
-#2#####
-##2.1#####
-b1<-data.frame(
-  name=c("文", "颜", "唐", "黄"),
-  score = c(95, 96, 97, 98)
-)
-head(b1)
-
-
-b2<-data.frame(
-  name=c("文", "颜"),
-  github=c("uuu1016", "yanyutong111")
-)
-head(b2)
-
-
-
-##2.2#####
-?merge
-
-print(merged_data)
-merged_inner <- merge(b1, b2, by = "name")
-print(merged_inner)
-
-##2.3 ， 2.4####
-merged_data <- b1 %>%
-  inner_join(b2, by = c("name"))
-print(merged_data)
 
 
